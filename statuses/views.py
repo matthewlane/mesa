@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from rest_framework import generics
 
-# Create your views here.
+from .models import Status
+from .serializers import StatusSerializer
+
+class StatusView(generics.ListCreateAPIView):
+    model = Status
+    serializer_class = StatusSerializer
