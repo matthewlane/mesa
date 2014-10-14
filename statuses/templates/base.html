@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
+    <title>Mesa</title>
 
     <link href="{% static 'bower_components/bootstrap/dist/css//bootstrap.min.css' %}" rel="stylesheet">
     <!--[if lt IE 9]>
@@ -16,10 +16,8 @@
 
 <body>
     <div class="container">
-        <h1>Mesa</h1>
-        {% for status in object_list %}
-            <p>{{ status.text }}</p>
-        {% endfor %}
+        {% block main %}
+        {% endblock main %}
     </div>
 
     <script src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
