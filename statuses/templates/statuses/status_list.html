@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 
 {% block main %}
-<h1>Mesa</h1>
 {% for status in object_list %}
-    <p>{{ status.text }}</p>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h2>{{ status.text }}</h2>
+    </div>
+    <div class="panel-footer">{{ status.created_at }}</div>
+</div>
 {% endfor %}
 {% endblock main %}
