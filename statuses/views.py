@@ -7,7 +7,6 @@ from .serializers import StatusSerializer
 
 class IndexView(ListView):
     model = Status
-    template_name = "index.html"
 
 class StatusView(generics.ListCreateAPIView):
     model = Status
