@@ -6,3 +6,6 @@ class Status(models.Model):
 
     def __unicode__(self):
         return self.text
+
+    class Meta:
+        ordering = ['-created_at']
