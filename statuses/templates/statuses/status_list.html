@@ -1,12 +1,27 @@
 {% extends "base.html" %}
 
-{% block main %}
-{% for status in object_list %}
-<div class="panel panel-default">
+{% block content %}
+{% verbatim %}
+<div ng-controller="MesaController">
+
+<form class="form" ng-submit="newPost()">
+    <button class="btn btn-primary">New Post</button>
+</form>
+<br>
+
+<div class="panel panel-default" ng-repeat="status in statuses">
     <div class="panel-body">
-        <h2>{{ status.text }}</h2>
+        <h2>{{status.text}}</h2>
     </div>
-    <div class="panel-footer">{{ status.created_at }}</div>
+    <div class="panel-footer">
+        {{status.created_at|date:"medium"}}
+        <span class="pull-right text-danger"
+            style="cursor: pointer;" ng-click="deletePost()">
+            &times;
+        </span>
+    </div>
 </div>
-{% endfor %}
-{% endblock main %}
+
+</div>
+{% endverbatim %}
+{% endblock content %}
