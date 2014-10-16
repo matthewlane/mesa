@@ -22,13 +22,16 @@ function($scope, $resource, Status) {
 
     $scope.newPost = function() {
         var post = new Status();
-        post.text = 'Hey hey, this is some posting.';
+        post.text = $scope.text || 'Hey hey, this is some posting.';
         post.$save().then(function() {
+            $scope.text = "";
             $scope.getPosts();
         });
     };
 
-    $scope.deletePost = function() {
-        console.log("deleted");
+    $scope.deletePost = function(id) {
+        Status.delete({id: id}, function() {
+            $scope.getPosts();
+        });
     };
 }]);
