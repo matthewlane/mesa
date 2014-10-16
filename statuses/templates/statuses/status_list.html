@@ -5,7 +5,7 @@
 <div ng-controller="MesaController">
 
 <form class="form form-inline" ng-submit="newPost()">
-    <input class="form-control" ng-model="text">
+    <input class="form-control" ng-model="text" autofocus>
     <button class="btn btn-primary">Post</button>
 </form>
 <br>
@@ -16,10 +16,9 @@
     </div>
     <div class="panel-footer">
         {{status.created_at|date:"medium"}}
-        <span class="pull-right text-danger"
-            style="cursor: pointer;" ng-click="deletePost(status.id)">
-            &times;
-        </span>
+
+        <button class="btn btn-danger btn-xs pull-right"
+            ng-click="deletePost(status.id)">&times;</button>
     </div>
 </div>
 
