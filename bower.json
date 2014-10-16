@@ -2,6 +2,7 @@
   "name": "mesa",
   "dependencies": {
     "angular": "~1.3.0",
+    "angular-resource": "~1.3.0",
     "bootstrap": "~3.2.0"
   }
 }
