@@ -4,5 +4,14 @@
     "angular-resource": "^1.4.3",
     "bootstrap": "^3.3.5",
     "jquery": "^2.1.4"
+  },
+  "scripts": {
+    "copy:angular": "cp -p node_modules/angular/angular.min.js static/js/",
+    "copy:angular-resource": "cp -p node_modules/angular-resource/angular-resource.min.js static/js/",
+    "copy:bootstrap-js": "cp -p node_modules/bootstrap/dist/js/bootstrap.min.js static/js/",
+    "copy:bootstrap-css": "cp -p node_modules/bootstrap/dist/css/bootstrap.min.css static/css/",
+    "copy:bootstrap": "npm run copy:bootstrap-js && npm run copy:bootstrap-css",
+    "copy:jquery": "cp -p node_modules/jquery/dist/jquery.min.js static/js/",
+    "copy": "npm run copy:angular && npm run copy:angular-resource && npm run copy:bootstrap && npm run copy:jquery"
   }
 }
