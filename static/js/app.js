@@ -11,8 +11,8 @@ app.factory('Status', function($resource) {
     return $resource('/api/statuses/:id/');
 });
 
-app.controller('MesaController', ['$scope', '$resource', 'Status',
-function($scope, $resource, Status) {
+app.controller('MesaController', ['$scope', 'Status',
+function($scope, Status) {
     $scope.getPosts = function() {
         Status.query(function(statuses) {
             $scope.statuses = statuses;
@@ -22,9 +22,9 @@ function($scope, $resource, Status) {
 
     $scope.newPost = function() {
         var post = new Status();
-        post.text = $scope.text || 'Hey hey, this is some posting.';
+        post.text = $scope.text || 'Great messsage!';
         post.$save().then(function() {
-            $scope.text = "";
+            $scope.text = '';
             $scope.getPosts();
         });
     };
