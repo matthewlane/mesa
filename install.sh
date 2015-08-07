@@ -37,3 +37,16 @@ if ! hash git 2>/dev/null; then
     echo "Git installed"
     echo "------------------------------"
 fi
+
+
+# Nginx
+if ! hash nginx 2>/dev/null; then
+    echo "Installing Nginx..."
+    echo "------------------------------"
+
+    sudo apt-get update
+    sudo apt-get install nginx -y
+
+    echo "Nginx installed"
+    echo "------------------------------"
+fi
