@@ -24,3 +24,16 @@ if ! hash pip 2>/dev/null; then
     echo "pip installed"
     echo "------------------------------"
 fi
+
+
+# Git
+if ! hash git 2>/dev/null; then
+    echo "Installing Git..."
+    echo "------------------------------"
+
+    sudo apt-get update
+    sudo apt-get install git -y
+
+    echo "Git installed"
+    echo "------------------------------"
+fi
