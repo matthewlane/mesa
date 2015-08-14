@@ -54,6 +54,11 @@ if ! hash nginx 2>/dev/null; then
     sudo apt-get update
     sudo apt-get install nginx -y
 
+    sudo rm -f /etc/nginx/sites-enabled/default
+    sudo cp -pf /vagrant/nginx.conf /etc/nginx/sites-available/$PROJECT_NAME.conf
+    sudo ln -sf /etc/nginx/sites-available/$PROJECT_NAME.conf /etc/nginx/sites-enabled/$PROJECT_NAME
+    sudo service nginx restart
+
     echo "Nginx installed"
     echo "------------------------------"
 fi
