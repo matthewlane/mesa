@@ -19,7 +19,14 @@ if ! hash pip 2>/dev/null; then
     sudo -H pip install virtualenvwrapper
     mkdir -p $WORKON_HOME
     virtualenv $VIRTUALENV_DIR
+
+    # install dependencies
     $VIRTUALENV/pip install -U setuptools
+    $VIRTUALENV/pip install -r /vagrant/requirements.txt
+
+    # start app server TODO replace this with script and call via supervisor
+    cd /vagrant
+    $VIRTUALENV/python $VIRTUALENV/gunicorn mesa.wsgi:application --bind=127.0.0.1:8001 &
 
     echo "pip installed"
     echo "------------------------------"
