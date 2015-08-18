@@ -24,9 +24,8 @@ if ! hash pip 2>/dev/null; then
     $VIRTUALENV/pip install -U setuptools
     $VIRTUALENV/pip install -r /vagrant/requirements.txt
 
-    # start app server TODO replace this with script and call via supervisor
-    cd /vagrant
-    $VIRTUALENV/python $VIRTUALENV/gunicorn $PROJECT_NAME.wsgi:application --bind=127.0.0.1:8001 &
+    # create database
+    $VIRTUALENV/python manage.py migrate
 
     echo "pip installed"
     echo "------------------------------"
@@ -60,5 +59,22 @@ if ! hash nginx 2>/dev/null; then
     sudo service nginx restart
 
     echo "Nginx installed"
+    echo "------------------------------"
+fi
+
+
+# Supervisor
+if ! hash supervisorctl 2>/dev/null; then
+    echo "Installing Supervisor..."
+    echo "------------------------------"
+
+    sudo apt-get update
+    sudo apt-get install supervisor -y
+
+    sudo cp -pf /vagrant/supervisor.conf /etc/supervisor/conf.d/$PROJECT_NAME.conf
+    sudo supervisorctl reread
+    sudo supervisorctl update
+
+    echo "Supervisor installed"
     echo "------------------------------"
 fi
