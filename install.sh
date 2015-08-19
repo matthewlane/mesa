@@ -25,7 +25,7 @@ if ! hash pip 2>/dev/null; then
     $VIRTUALENV/pip install -r /vagrant/requirements.txt
 
     # create database
-    $VIRTUALENV/python manage.py migrate
+    $VIRTUALENV/python /vagrant/manage.py migrate
 
     echo "pip installed"
     echo "------------------------------"
