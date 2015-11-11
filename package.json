@@ -13,7 +13,7 @@
     "copy:jquery": "cp -p node_modules/jquery/dist/jquery.min.js static/js/",
     "copy:react": "cp -p node_modules/react/dist/react.js static/js/",
     "copy:react-dom": "cp -p node_modules/react-dom/dist/react-dom.js static/js/",
-    "copy:babel": "cp -p node_modules/babel-core/browser.js static/js/",
+    "copy:babel": "cp -p node_modules/babel-core/browser.min.js static/js/",
     "copy": "npm run copy:bootstrap && npm run copy:jquery && npm run copy:react && npm run copy:react-dom && npm run copy:babel"
   }
 }
