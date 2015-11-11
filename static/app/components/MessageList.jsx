@@ -1,7 +1,7 @@
-var React = require('react');
-var Message = require('./Message');
+import React from 'react';
+import Message from './Message';
 
-var MessageList = function(props) {
+export default function(props) {
   return <div>{props.messages.map(createMessage)}</div>;
   function createMessage(message) {
     return (
@@ -13,5 +13,3 @@ var MessageList = function(props) {
     );
   }
 };
-
-module.exports = MessageList;

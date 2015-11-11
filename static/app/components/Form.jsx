@@ -1,6 +1,6 @@
-var React = require('react');
+import React from 'react';
 
-var Form = React.createClass({
+export default React.createClass({
   handleSubmit: function(e) {
     e.preventDefault();
     if (!this.refs.text.value) {return;}
@@ -26,5 +26,3 @@ var Form = React.createClass({
     );
   }
 });
-
-module.exports = Form;

@@ -1,6 +1,6 @@
-var React = require('react');
+import React from 'react';
 
-var Message = function(props) {
+export default function(props) {
   return (
     <div className="message">
       <span className="text-muted">{props.message.created_at}</span>
@@ -9,5 +9,3 @@ var Message = function(props) {
     </div>
   );
 };
-
-module.exports = Message;

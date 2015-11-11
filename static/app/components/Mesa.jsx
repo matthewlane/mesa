@@ -1,8 +1,8 @@
-var React = require('react');
-var Form = require('./Form');
-var MessageList = require('./MessageList');
+import React from 'react';
+import Form from './Form';
+import MessageList from './MessageList';
 
-var Mesa = React.createClass({
+export default React.createClass({
   getInitialState: function() {
     return {messages: []};
   },
@@ -79,5 +79,3 @@ var Mesa = React.createClass({
     );
   }
 });
-
-module.exports = Mesa;
