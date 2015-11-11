@@ -6,4 +6,4 @@ class StatusSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = Status
-        fields = ('id', 'url', 'text', 'created_at')
+        fields = ('id', 'uuid', 'url', 'text', 'created_at')
