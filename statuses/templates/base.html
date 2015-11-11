@@ -1,6 +1,6 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en" ng-app="mesa">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +12,10 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        .message h2 {margin: 0;}
+        .message {margin: 1em auto;}
+    </style>
 </head>
 
 <body>
@@ -26,9 +30,10 @@
 
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/angular.min.js' %}"></script>
-    <script src="{% static 'js/angular-resource.min.js' %}"></script>
-    <script src="{% static 'js/app.js' %}"></script>
+    <script src="{% static 'js/react.js' %}"></script>
+    <script src="{% static 'js/react-dom.js' %}"></script>
+    <script src="{% static 'js/browser.js' %}"></script>
+    <script src="{% static 'js/app.js' %}" type="text/babel"></script>
     {% block script %}
     {% endblock script %}
 </body>

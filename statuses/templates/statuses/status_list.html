@@ -1,27 +1,5 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% verbatim %}
-<div ng-controller="MesaController">
-
-<form class="form form-inline" ng-submit="newPost()">
-    <input class="form-control" ng-model="text" autofocus>
-    <button class="btn btn-primary">Post</button>
-</form>
-<br>
-
-<div class="panel panel-default" ng-repeat="status in statuses">
-    <div class="panel-body">
-        <h2>{{status.text}}</h2>
-    </div>
-    <div class="panel-footer">
-        {{status.created_at|date:"medium"}}
-
-        <button class="btn btn-danger btn-xs pull-right"
-            ng-click="deletePost(status.id)">&times;</button>
-    </div>
-</div>
-
-</div>
-{% endverbatim %}
+<div id="app"></div>
 {% endblock content %}
