@@ -14,12 +14,16 @@ You can run this demo locally inside of a virtual machine. Install [VirtualBox](
 This will set up an [Ubuntu 14.04](http://www.ubuntu.com/) virtual machine and install all of this project's required software inside of that machine. Once Vagrant has finished building the machine, open http://192.168.33.10 in a web browser to visit and use the web application.
 
 ## Frontend Package Management
-For demo convenience, required third-party JavaScript files are included in the [static js directory](static/js). You can manage these files using [npm](https://www.npmjs.com/). For example, to update these files to a newer release, run the following commands within the project directory
+For demo convenience, this project's frontend components were prebuilt into static/js/bundle.js. You can recompile these components with [webpack](http://webpack.github.io/). Within the project directory, run
+
+    webpack
+
+Other required third-party static files are included in the [static directory](static/). You can manage these files using [npm](https://www.npmjs.com/). For example, to update these files to a newer release, run the following commands within the project directory
 
     npm up
     npm run copy
 
 ## Todo
-- [ ] Build frontend with webpack
+- [x] Build frontend with webpack
 - [ ] Test frontend with Mocha and Chai
-- [ ] Write documentation describing server setup
+- [ ] Integrate Redux on client-side
