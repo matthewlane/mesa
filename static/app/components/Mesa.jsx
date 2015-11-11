@@ -1,52 +1,6 @@
-var Form = React.createClass({
-  handleSubmit: function(e) {
-    e.preventDefault();
-    if (!this.refs.text.value) {return;}
-    this.props.onSubmit(this.refs.text.value);
-    this.refs.text.value = '';
-  },
-
-  render: function() {
-    return (
-      <form
-        onSubmit={this.handleSubmit}
-        className="form"
-      >
-        <input
-          type="text"
-          ref="text"
-          className="form-control"
-          placeholder="Type something then press enter"
-          autoFocus
-        />
-        <br />
-      </form>
-    );
-  }
-});
-
-var Message = function(props) {
-  return (
-    <div className="message">
-      <span className="text-muted">{props.message.created_at}</span>
-      <h2>{props.message.text}</h2>
-      <a href="" onClick={props.onDelete.bind(null, props.message)}>Delete</a>
-    </div>
-  );
-};
-
-var MessageList = function(props) {
-  return <div>{props.messages.map(createMessage)}</div>;
-  function createMessage(message) {
-    return (
-      <Message
-        key={message.uuid}
-        message={message}
-        onDelete={props.onDelete}
-      />
-    );
-  }
-};
+var React = require('react');
+var Form = require('./Form');
+var MessageList = require('./MessageList');
 
 var Mesa = React.createClass({
   getInitialState: function() {
@@ -126,4 +80,4 @@ var Mesa = React.createClass({
   }
 });
 
-ReactDOM.render(<Mesa />, document.getElementById('app'));
+module.exports = Mesa;
