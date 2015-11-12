@@ -26,9 +26,8 @@ export default React.createClass({
   handleDelete: function(message, e) {
     e.preventDefault();
 
-    var newMessages = this.state.messages.filter(function(candidate) {
-      return candidate.uuid !== message.uuid;
-    });
+    let newMessages = this.state.messages
+      .filter(candidate => candidate.uuid !== message.uuid);
     this.setState({messages: newMessages});
 
     if (message.url) {
@@ -37,12 +36,12 @@ export default React.createClass({
   },
 
   handleSubmit: function(message) {
-    var newMessage = {
+    let newMessage = {
       uuid: uuid.v4(),
-      text: message || (100 * Math.random()).toString(),
+      text: message,
       created_at: new Date().toString()
     };
-    var newMessages = [newMessage].concat(this.state.messages);
+    let newMessages = [newMessage, ...this.state.messages];
     this.setState({messages: newMessages});
 
     fetch('/api/statuses/', {
