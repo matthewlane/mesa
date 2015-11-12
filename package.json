@@ -3,7 +3,8 @@
     "bootstrap": "^3.3.5",
     "jquery": "^2.1.4",
     "react": "^0.14.0",
-    "react-dom": "^0.14.0"
+    "react-dom": "^0.14.0",
+    "uuid": "^2.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.1.4",
@@ -20,6 +21,9 @@
     "copy": "npm run copy:bootstrap && npm run copy:jquery"
   },
   "babel": {
-    "presets": ["es2015", "react"]
+    "presets": [
+      "es2015",
+      "react"
+    ]
   }
 }
