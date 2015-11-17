@@ -1,11 +1,11 @@
 import React from 'react';
 
-export default function(props) {
+export default function({message, onDelete}) {
   return (
     <div className="message">
-      <span className="text-muted">{props.message.created_at}</span>
-      <h2>{props.message.text}</h2>
-      <a href="" onClick={props.onDelete.bind(null, props.message)}>Delete</a>
+      <span className="text-muted">{message.created_at}</span>
+      <h2>{message.text}</h2>
+      <a href="" onClick={onDelete.bind(null, message)}>Delete</a>
     </div>
   );
 };
