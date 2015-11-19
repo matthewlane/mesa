@@ -1,5 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducer from './reducer';
 import Mesa from './components/Mesa';
 
-ReactDOM.render(<Mesa />, document.getElementById('app'));
+let store = createStore(reducer);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <Mesa />
+  </Provider>,
+  document.getElementById('app')
+);
