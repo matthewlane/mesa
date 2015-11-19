@@ -24,10 +24,16 @@
             <h1>Mesa</h1>
         </div>
 
+        <div id="app"></div>
         {% block content %}
         {% endblock content %}
     </div>
 
+    <script>
+        window.INITIAL_STATE = JSON.parse(
+            '{"messages": {{ initial|escapejs }}}'
+        );
+    </script>
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/bundle.js' %}"></script>

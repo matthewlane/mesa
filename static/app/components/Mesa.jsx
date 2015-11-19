@@ -6,21 +6,6 @@ import Form from './Form';
 import MessageList from './MessageList';
 
 const Mesa = React.createClass({
-  componentDidMount: function() {
-    fetch('/api/statuses/')
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(data) {
-      if (this.isMounted()) {
-        this.props.dispatch(setState({messages: data}));
-      }
-    }.bind(this))
-    .catch(function(error) {
-      console.error('Request failed ', error);
-    });
-  },
-
   handleDelete: function(message, e) {
     e.preventDefault();
     this.props.dispatch(deleteMessage(message));
