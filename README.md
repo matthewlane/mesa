@@ -4,6 +4,8 @@ Simple message web application to demonstrate:
 * [Django](https://www.djangoproject.com)
 * [Django REST Framework](http://www.django-rest-framework.org)
 * [React](https://facebook.github.io/react/)
+* [Redux](http://redux.js.org/)
+* [ES2015](http://www.ecma-international.org/ecma-262/6.0/) (compiled with [Babel](http://babeljs.io/) and bundled with [webpack](http://webpack.github.io/))
 
 ## Running Locally
 
