@@ -1,13 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import uuid from 'uuid';
+import { setState, addMessage, deleteMessage } from '../actions';
 import Form from './Form';
 import MessageList from './MessageList';
 
-export default React.createClass({
-  getInitialState: function() {
-    return {messages: []};
-  },
-
+const Mesa = React.createClass({
   componentDidMount: function() {
     fetch('/api/statuses/')
     .then(function(response) {
@@ -15,7 +13,7 @@ export default React.createClass({
     })
     .then(function(data) {
       if (this.isMounted()) {
-        this.setState({messages: data});
+        this.props.dispatch(setState({messages: data}));
       }
     }.bind(this))
     .catch(function(error) {
@@ -25,10 +23,7 @@ export default React.createClass({
 
   handleDelete: function(message, e) {
     e.preventDefault();
-
-    let newMessages = this.state.messages
-      .filter(candidate => candidate.uuid !== message.uuid);
-    this.setState({messages: newMessages});
+    this.props.dispatch(deleteMessage(message));
 
     if (message.url) {
       fetch(message.url, {method: 'DELETE'});
@@ -41,8 +36,7 @@ export default React.createClass({
       text: message,
       created_at: new Date().toString()
     };
-    let newMessages = [newMessage, ...this.state.messages];
-    this.setState({messages: newMessages});
+    this.props.dispatch(addMessage(newMessage));
 
     fetch('/api/statuses/', {
       method: 'POST',
@@ -56,10 +50,18 @@ export default React.createClass({
       <div>
         <Form onSubmit={this.handleSubmit} />
         <MessageList
-          messages={this.state.messages}
+          messages={this.props.messages}
           onDelete={this.handleDelete}
         />
       </div>
     );
   }
 });
+
+function select(state) {
+  return {
+    messages: state.messages
+  }
+}
+
+export default connect(select)(Mesa);
