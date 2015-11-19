@@ -1,12 +1,13 @@
 export const SET_STATE = 'SET_STATE';
 export const ADD_MESSAGE = 'ADD_MESSAGE';
+export const UPDATE_MESSAGE = 'UPDATE_MESSAGE';
 export const DELETE_MESSAGE = 'DELETE_MESSAGE';
 
 export function setState(state) {
   return {
     type: SET_STATE,
     state
-  }
+  };
 }
 
 export function addMessage(message) {
@@ -16,9 +17,16 @@ export function addMessage(message) {
   };
 }
 
+export function updateMessage(message) {
+  return {
+    type: UPDATE_MESSAGE,
+    message
+  };
+}
+
 export function deleteMessage(message) {
   return {
     type: DELETE_MESSAGE,
     message
-  }
+  };
 }
