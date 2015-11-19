@@ -22,8 +22,3 @@ Other required third-party static files are included in the [static directory](s
 
     npm up
     npm run copy
-
-## Todo
-- [x] Build frontend with webpack
-- [ ] Test frontend with Mocha and Chai
-- [ ] Integrate Redux on client-side
