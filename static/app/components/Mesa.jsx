@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import uuid from 'uuid';
-import { setState, addMessage, deleteMessage } from '../actions';
+import { setState, addMessage, updateMessage, deleteMessage } from '../actions';
 import Form from './Form';
 import MessageList from './MessageList';
 
@@ -9,10 +9,7 @@ const Mesa = React.createClass({
   handleDelete: function(message, e) {
     e.preventDefault();
     this.props.dispatch(deleteMessage(message));
-
-    if (message.url) {
-      fetch(message.url, {method: 'DELETE'});
-    }
+    fetch(message.url, {method: 'DELETE'});
   },
 
   handleSubmit: function(message) {
@@ -27,7 +24,9 @@ const Mesa = React.createClass({
       method: 'POST',
       headers: {"Content-type": "application/json"},
       body: JSON.stringify(newMessage)
-    });
+    })
+    .then(response => response.json())
+    .then(data => this.props.dispatch(updateMessage(data)));
   },
 
   render: function() {
