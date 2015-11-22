@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import uuid from 'uuid';
-import { setState, addMessage, updateMessage, requestDelete } from '../actions';
+import { postMessage, requestDelete } from '../actions';
 import Form from './Form';
 import MessageList from './MessageList';
 
@@ -12,20 +12,11 @@ const Mesa = React.createClass({
   },
 
   handleSubmit: function(message) {
-    let newMessage = {
+    this.props.dispatch(postMessage({
       uuid: uuid.v4(),
       text: message,
       created_at: new Date().toString()
-    };
-    this.props.dispatch(addMessage(newMessage));
-
-    fetch('/api/statuses/', {
-      method: 'POST',
-      headers: {"Content-type": "application/json"},
-      body: JSON.stringify(newMessage)
-    })
-    .then(response => response.json())
-    .then(data => this.props.dispatch(updateMessage(data)));
+    }));
   },
 
   render: function() {
