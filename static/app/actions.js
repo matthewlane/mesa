@@ -24,6 +24,19 @@ export function updateMessage(message) {
   };
 }
 
+export function postMessage(message) {
+  return function(dispatch) {
+    dispatch(addMessage(message));
+    return fetch('/api/statuses/', {
+        method: 'POST',
+        headers: {"Content-type": "application/json"},
+        body: JSON.stringify(message)
+      })
+      .then(response => response.json())
+      .then(json => dispatch(updateMessage(json)));
+  }
+}
+
 export function deleteMessage(message) {
   return {
     type: DELETE_MESSAGE,
@@ -34,6 +47,6 @@ export function deleteMessage(message) {
 export function requestDelete(message) {
   return function (dispatch) {
     dispatch(deleteMessage(message));
-    return fetch(message.url + 'z', {method: 'DELETE'});
+    return fetch(message.url, {method: 'DELETE'});
   }
 }
