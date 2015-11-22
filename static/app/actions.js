@@ -30,3 +30,10 @@ export function deleteMessage(message) {
     message
   };
 }
+
+export function requestDelete(message) {
+  return function (dispatch) {
+    dispatch(deleteMessage(message));
+    return fetch(message.url + 'z', {method: 'DELETE'});
+  }
+}
