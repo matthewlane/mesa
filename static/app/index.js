@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import reducer from './reducer';
 import Mesa from './components/Mesa';
 
-let store = createStore(reducer, window.INITIAL_STATE);
+const createStoreWithMiddleWare = applyMiddleware(thunk)(createStore);
+const store = createStoreWithMiddleWare(reducer, window.INITIAL_STATE);
 
 ReactDOM.render(
   <Provider store={store}>
