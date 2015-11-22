@@ -1,15 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import uuid from 'uuid';
-import { setState, addMessage, updateMessage, deleteMessage } from '../actions';
+import { setState, addMessage, updateMessage, requestDelete } from '../actions';
 import Form from './Form';
 import MessageList from './MessageList';
 
 const Mesa = React.createClass({
   handleDelete: function(message, e) {
     e.preventDefault();
-    this.props.dispatch(deleteMessage(message));
-    fetch(message.url, {method: 'DELETE'});
+    this.props.dispatch(requestDelete(message));
   },
 
   handleSubmit: function(message) {
