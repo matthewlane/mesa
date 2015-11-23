@@ -15,7 +15,7 @@ const Mesa = React.createClass({
     this.props.dispatch(postMessage({
       uuid: uuid.v4(),
       text: message,
-      created_at: new Date().toString()
+      created_at: new Date().toJSON()
     }));
   },
 
