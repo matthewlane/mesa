@@ -1,3 +1,5 @@
+import fetch from  'isomorphic-fetch';
+
 export const SET_STATE = 'SET_STATE';
 export const ADD_MESSAGE = 'ADD_MESSAGE';
 export const UPDATE_MESSAGE = 'UPDATE_MESSAGE';
