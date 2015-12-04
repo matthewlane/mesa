@@ -1,7 +1,29 @@
 import { expect } from 'chai';
 import React from 'react';
 import TestUtils from 'react-addons-test-utils';
+import { Mesa } from '../components/Mesa';
+import Form from '../components/Form';
 import MessageList from '../components/MessageList';
+
+describe('Mesa', () => {
+  let output;
+
+  before(() => {
+    let renderer = TestUtils.createRenderer();
+    renderer.render(<Mesa />);
+    output = renderer.getRenderOutput();
+  });
+
+  it('renders correctly', () => {
+    expect(output.type).to.equal('div');
+
+    let [ form, messageList ] = output.props.children;
+
+    expect(form.type).to.equal(Form);
+    expect(messageList.type).to.equal(MessageList);
+  });
+
+});
 
 describe('MessageList', () => {
 
