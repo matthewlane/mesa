@@ -5,7 +5,7 @@ import { postMessage, requestDelete } from '../actions';
 import Form from './Form';
 import MessageList from './MessageList';
 
-const Mesa = React.createClass({
+export const Mesa = React.createClass({
   handleDelete: function(message, e) {
     e.preventDefault();
     this.props.dispatch(requestDelete(message));
