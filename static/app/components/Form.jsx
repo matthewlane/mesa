@@ -1,6 +1,10 @@
 import React from 'react';
 
 export default React.createClass({
+  propTypes: {
+    onSubmit: React.PropTypes.func.isRequired
+  },
+
   handleSubmit: function(e) {
     e.preventDefault();
     if (!this.refs.text.value) {return;}
