@@ -4,10 +4,10 @@ import TestUtils from 'react-addons-test-utils';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import reducer from '../reducer';
-import App, { Mesa } from '../components/Mesa';
-import Form from '../components/Form';
-import MessageList from '../components/MessageList';
+import reducer from '../../reducer';
+import App, { Mesa } from '../../components/Mesa';
+import Form from '../../components/Form';
+import MessageList from '../../components/MessageList';
 
 function setup(initialState) {
   const createStoreWithMiddleWare = applyMiddleware(thunk)(createStore);
