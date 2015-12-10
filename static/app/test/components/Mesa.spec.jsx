@@ -48,14 +48,25 @@ describe('<Mesa />', () => {
   });
 
   it('removes messages that were deleted', () => {
-    const initialState = {messages: [{uuid: '1', text: 'zebra'}]};
+    const initialState = {messages: [
+      {uuid: '1', text: 'zebra'},
+      {uuid: '2', text: 'elephant'},
+      {uuid: '3', text: 'giraffe'}
+    ]};
     const { app } = setup(initialState);
 
-    const deleteLink = TestUtils.findRenderedDOMComponentWithTag(app, 'a');
-    TestUtils.Simulate.click(deleteLink);
+    const [ deleteZebra, , deleteGiraffe ] =
+      TestUtils.scryRenderedDOMComponentsWithTag(app, 'a');
+    TestUtils.Simulate.click(deleteZebra);
+    TestUtils.Simulate.click(deleteGiraffe);
 
     const messages = TestUtils.scryRenderedDOMComponentsWithClass(app, 'message');
-    expect(messages.length).to.equal(0);
+    expect(messages.length).to.equal(1);
+
+    const messagesText = messages.map(message => message.textContent).join();
+    expect(messagesText).to.not.contain('zebra');
+    expect(messagesText).to.not.contain('giraffe');
+    expect(messagesText).to.contain('elephant');
   });
 
 });
