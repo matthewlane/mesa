@@ -8,7 +8,8 @@ export default React.createClass({
   propTypes: {
     messages: React.PropTypes.arrayOf(React.PropTypes.shape({
       created_at: React.PropTypes.string,
-      text: React.PropTypes.string
+      text: React.PropTypes.string,
+      uuid: React.PropTypes.string
     })),
     onDelete: React.PropTypes.func.isRequired
   },
