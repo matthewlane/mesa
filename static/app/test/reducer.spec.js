@@ -65,4 +65,37 @@ describe('reducer', () => {
     });
   });
 
+  it('handles UPDATE_MESSAGE', () => {
+    const initialState = {
+      messages: [{
+        uuid: '1-1',
+        text: 'zebra'
+      }, {
+        uuid: '2-2',
+        text: 'elephant'
+      }]
+    };
+    const action = {
+      type: 'UPDATE_MESSAGE',
+      message: {
+        uuid: '1-1',
+        id: 42,
+        url: '/example/42'
+      }
+    };
+    const nextState = reducer(initialState, action);
+
+    expect(nextState).to.deep.equal({
+      messages: [{
+        uuid: '1-1',
+        text: 'zebra',
+        id: 42,
+        url: '/example/42'
+      }, {
+        uuid: '2-2',
+        text: 'elephant'
+      }]
+    });
+  });
+
 });
