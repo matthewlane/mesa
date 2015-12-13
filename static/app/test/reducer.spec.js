@@ -98,4 +98,30 @@ describe('reducer', () => {
     });
   });
 
+  it('handles DELETE_MESSAGE', () => {
+    const initialState = {
+      messages: [{
+        uuid: '1-1',
+        text: 'zebra'
+      }, {
+        uuid: '2-2',
+        text: 'elephant'
+      }]
+    };
+    const action = {
+      type: 'DELETE_MESSAGE',
+      message: {
+        uuid: '1-1'
+      }
+    };
+    const nextState = reducer(initialState, action);
+
+    expect(nextState).to.deep.equal({
+      messages: [{
+        uuid: '2-2',
+        text: 'elephant'
+      }]
+    });
+  });
+
 });
