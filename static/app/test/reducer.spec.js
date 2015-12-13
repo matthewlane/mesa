@@ -24,8 +24,8 @@ describe('reducer', () => {
     });
   });
 
-  it('stores new messages', () => {
-    const state = {messages: []};
+  it('handles ADD_MESSAGE', () => {
+    const initialState = {};
     const action = {
       type: 'ADD_MESSAGE',
       message: {
@@ -34,10 +34,15 @@ describe('reducer', () => {
         created_at: "2015-11-13T01:29:13.189431Z"
       }
     };
-    const nextState = reducer(state, action);
+    const nextState = reducer(initialState, action);
 
-    expect(nextState.messages.length).to.equal(1);
-    expect(nextState.messages[0]).to.equal(action.message);
+    expect(nextState).to.deep.equal({
+      messages: [{
+        uuid: "964074df-1ecb-4751-a16a-3be3095067de",
+        text: "ok",
+        created_at: "2015-11-13T01:29:13.189431Z"
+      }]
+    });
   });
 
 });
