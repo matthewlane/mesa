@@ -32,10 +32,10 @@ export const Mesa = React.createClass({
   }
 });
 
-function select(state) {
+function mapStateToProps(state) {
   return {
     messages: state.messages
   }
 }
 
-export default connect(select)(Mesa);
+export default connect(mapStateToProps)(Mesa);
