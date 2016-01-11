@@ -1,6 +1,10 @@
 # Mesa
 
-Simple message web application to demonstrate:
+Message web application
+
+~[Application screenshot](https://raw.github.com/matthewlane/mesa/master/screenshot.png)
+
+Built with:
 
 * [Django](https://www.djangoproject.com)
 * [Django REST Framework](http://www.django-rest-framework.org)
