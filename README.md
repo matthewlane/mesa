@@ -2,7 +2,7 @@
 
 Message web application
 
-~[Application screenshot](https://raw.github.com/matthewlane/mesa/master/screenshot.png)
+![Application screenshot](https://raw.github.com/matthewlane/mesa/master/screenshot.png)
 
 Built with:
 
