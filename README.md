@@ -5,7 +5,7 @@ Message web application built with:
 * [Django](https://www.djangoproject.com) | [Django REST Framework](http://www.django-rest-framework.org)
 * [React](https://facebook.github.io/react/) | [Redux](http://rackt.org/redux/) | [ES2015](http://www.ecma-international.org/ecma-262/6.0/) (transpiled with [Babel](http://babeljs.io/) and bundled with [webpack](http://webpack.github.io/))
 
-<img src="https://raw.github.com/matthewlane/mesa/master/screenshot.png" alt="Application screenshot" width="300" />
+<img src="https://raw.github.com/matthewlane/mesa/master/screenshot.png" alt="Application screenshot" width="500">
 
 ## Running Locally
 
