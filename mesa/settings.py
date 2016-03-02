@@ -22,8 +22,6 @@ SECRET_KEY = 'k#efd7al953lnm*knqoqz4(^xqwcen=qp-)@b!#sw+6h7$q%z1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = True
-
 ALLOWED_HOSTS = []
 
 
@@ -51,6 +49,22 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'mesa.urls'
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
 WSGI_APPLICATION = 'mesa.wsgi.application'
 
