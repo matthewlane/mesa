@@ -7,6 +7,18 @@ Message web application built with:
 
 <img src="https://raw.github.com/matthewlane/mesa/master/screenshot.png" alt="Application screenshot" width="500">
 
+## Back-end
+
+This project's back-end is built using the Python web framework Django. Its data model is exposed as JSON through a RESTful API using Django REST Framework.
+
+URL | Action | Result
+------ | --- | ------
+/api/statuses/ | GET | All messages returned as JSON
+/api/statuses/ | POST | New message added to database
+/api/statuses/:id/ | GET | Individual message returned as JSON
+/api/statuses/:id/ | PUT | Message with :id updated
+/api/statuses/:id/ | DELETE | Message with :id deleted
+
 ## Running Locally
 
 You can run this demo locally inside of a virtual machine. Install [VirtualBox](https://www.virtualbox.org/) and [Vagrant](https://www.vagrantup.com/) on your system. Download this repository to your system, change into that directory, and run
